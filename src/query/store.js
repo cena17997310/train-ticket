@@ -9,17 +9,17 @@ export default createStore(
   {
     from: null, // 出发地点
     to: null, // 目的地
-    departDate: new Date(), // 出发时间
+    departDate: Date.now(), // 出发时间
     highSpeed: false, // 只看高铁
     tranList: [], // 车次列表
-    orderType: 1, // 耗时类型（1.短，2.长）
+    orderType: ORDERTYPE_SHORT, // 耗时类型（1.短，2.长）
     onlyTickets: false, // 只看有票
     ticketTypes: [], // 坐席类型
     selectedTicketTypes: {}, // 选中的坐席类型
     trainTypes: [], // 车次类型
     selectTrainTypes: {}, // 选中的车次类型
     departStations: [], // 出发车站
-    selectDepartStation: {}, // 选择的出发车站
+    selectDepartStations: {}, // 选择的出发车站
     arriveStations: [], // 到达车站
     selectArriveStations: {}, // 选择的到达车站
     departTimeStart: 0, // 出发开始时间

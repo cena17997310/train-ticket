@@ -22,6 +22,7 @@ import {
   ACTION_SET_SEARCHPARSED
 } from "./actionTypes";
 import { ORDERTYPE_SHORT, ORDERTYPE_LONG } from "./constant";
+import { transDayTime } from '../utils/util';
 
 // 设置出发地点
 export function setFrom(payload) {
@@ -64,7 +65,7 @@ export function toggleHighSpeed() {
 }
 
 // 设置车次列表
-export function setTranList(payload) {
+export function setTrainList(payload) {
   return {
     type: ACTION_SET_TRANLIST,
     payload
@@ -207,3 +208,20 @@ export function setSearchParsed(payload) {
     payload
   };
 }
+
+// 前一天
+export function prevDate() {
+  return (dispatch, getState) => {
+    const { departDate } = getState();
+    dispatch(setDepartDate(transDayTime(departDate) - 86400 * 1000));
+  }
+}
+
+// 后一天
+export function nextDate() {
+  return (dispatch, getState) => {
+    const { departDate } = getState();
+    dispatch(setDepartDate(transDayTime(departDate) + 86400 * 1000));
+  }
+}
+
