@@ -6,7 +6,8 @@ import {
   ACTION_SET_CITY_DATA,
   ACTION_SET_IS_LOADING_CITY_DATA,
   ACTION_SET_IS_DATE_SELECTOR_VISIBLE,
-  ACTION_SET_HIGN_SPEED
+  ACTION_SET_HIGN_SPEED,
+  ACTION_SET_DEPART_DATE
 } from "./actionTypes";
 
 // 设置出发地点
@@ -84,10 +85,27 @@ export function setSelectedCity(city) {
   };
 }
 
-// 设置日期浮层的展示
-export function showDateSelector(payload) {
+// 展示日期浮层
+export function showDateSelector() {
   return {
     type: ACTION_SET_IS_DATE_SELECTOR_VISIBLE,
+    payload: true
+  };
+}
+
+// 隐藏日期浮层
+export function hideDateSelector() {
+  return {
+    type: ACTION_SET_IS_DATE_SELECTOR_VISIBLE,
+    payload: false
+  };
+}
+
+// 设置选择出发日期
+export function setSelectDay(payload) {
+  console.log("payload", payload);
+  return {
+    type: ACTION_SET_DEPART_DATE,
     payload
   };
 }
@@ -137,26 +155,3 @@ export function fetchCityData() {
         });
   };
 }
-
-// // 设置城市浮层的状态
-// export function setIsCitySelectorVisible(payload) {
-//   return {
-//     type: ACTION_SET_IS_CITY_SELECTOR_VISIBLE,
-//     payload
-//   };
-// }
-
-// export function setCurrentselectingLeftCity(payload) {
-//   return {
-//     type: ACTION_SET_CURRENT_SELECTING_LEFT_CITY,
-//     payload
-//   };
-// }
-
-// // 设置日期浮层的状态
-// export function setIsDateSelectorVisible(payload) {
-//   return {
-//     type: ACTION_SET_IS_DATE_SELECTOR_VISIBLE,
-//     payload
-//   };
-// }

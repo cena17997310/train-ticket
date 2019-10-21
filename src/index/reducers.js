@@ -6,7 +6,8 @@ import {
   ACTION_SET_CITY_DATA,
   ACTION_SET_IS_LOADING_CITY_DATA,
   ACTION_SET_IS_DATE_SELECTOR_VISIBLE,
-  ACTION_SET_HIGN_SPEED
+  ACTION_SET_HIGN_SPEED,
+  ACTION_SET_DEPART_DATE
 } from "./actionTypes";
 
 export default {
@@ -16,6 +17,7 @@ export default {
       case ACTION_SET_FROM:
         return payload;
       default:
+        break;
     }
     return state;
   },
@@ -25,6 +27,7 @@ export default {
       case ACTION_SET_TO:
         return payload;
       default:
+        break;
     }
     return state;
   },
@@ -34,6 +37,7 @@ export default {
       case ACTION_SET_IS_CITY_SELECTOR_VISIBLE:
         return payload;
       default:
+        break;
     }
     return state;
   },
@@ -43,6 +47,7 @@ export default {
       case ACTION_SET_CURRENT_SELECTING_LEFT_CITY:
         return payload;
       default:
+        break;
     }
     return state;
   },
@@ -52,6 +57,7 @@ export default {
       case ACTION_SET_CITY_DATA:
         return payload;
       default:
+        break;
     }
     return state;
   },
@@ -61,6 +67,7 @@ export default {
       case ACTION_SET_IS_LOADING_CITY_DATA:
         return payload;
       default:
+        break;
     }
     return state;
   },
@@ -70,6 +77,7 @@ export default {
       case ACTION_SET_IS_DATE_SELECTOR_VISIBLE:
         return payload;
       default:
+        break;
     }
     return state;
   },
@@ -79,7 +87,19 @@ export default {
       case ACTION_SET_HIGN_SPEED:
         return payload;
       default:
+        break;
     }
+    return state;
+  },
+  departDate(state = Date.now(), action) {
+    const { type, payload } = action;
+    switch (type) {
+      case ACTION_SET_DEPART_DATE:
+        return payload;
+      default:
+        break;
+    }
+
     return state;
   }
 };
